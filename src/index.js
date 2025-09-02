@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { ProductAnalysis } from './app/pages/ProductAnalysis';
+import { ProductRecords } from './app/pages/ProductRecords';
+const router = createBrowserRouter( [
+  {
+    path: "/",
+    element: <App />
+  },
+  {
+    path:"/pa",
+    element: <ProductAnalysis/>
+  },
+  {
+    path:"/apd",
+    element:<ProductRecords/>
+  }
+])
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={ router } />
   </React.StrictMode>
 );
 
