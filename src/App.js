@@ -35,7 +35,7 @@ const ExpensiveProduct = ( { product } ) => {
   );
 };
 
-const TotalAndAverage = ( { product } ) => {
+/* const TotalAndAverage = ( { product } ) => {
   const { totalPrice, totalRating, totalElectronicsCount } = product.reduce(
     ( acc, curr ) => {
       acc.totalPrice += curr.price;
@@ -71,7 +71,41 @@ const TotalAndAverage = ( { product } ) => {
       </article>
     </div>
   );
-};
+}; */
+
+const TotalAndAverage = ( { product } ) => {
+  const { totalPrice, totalRating, totalElectronicsCount } = product.reduce( ( acc, { price, category, rating } ) => ( {
+    totalPrice: acc.totalPrice + price,
+    totalRating: acc.totalRating + rating,
+    totalElectronicsCount: acc.totalElectronicsCount + ( category === "Electronics" ? 1 : 0 )
+  } ),
+    { totalPrice: 0, totalRating: 0, totalElectronicsCount: 0 } );
+  
+  const totalAverage = totalPrice / product.length;
+  const totalAvgRating = totalRating / product.length;
+  return(
+        <div>
+      <article className=''>
+        <header className='text-light'>
+          <h2>Product Statistics</h2>
+        </header>
+        <p>
+          <strong>Total Electronics Product:</strong> { totalElectronicsCount}
+        </p>
+        <p>
+          <strong>Average Price:</strong> { totalAverage.toFixed(2) }
+        </p>
+        <p>Total price: {totalPrice}</p>
+        <p>Total Rating: {totalRating}</p>
+        <footer>
+          <strong className='text-light'>
+            Average Rating: { totalAvgRating.toFixed( 1 ) }
+          </strong>
+        </footer>
+      </article>
+    </div>
+  )
+}
 
 const ProductUnder50 = ( { product } ) => {
   const filterPrice = product.filter( ( { price } ) => price < 50 );
