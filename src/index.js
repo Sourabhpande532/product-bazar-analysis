@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ProductAnalysis } from './app/pages/ProductAnalysis';
 import { ProductRecords } from './app/pages/ProductRecords';
 const router = createBrowserRouter( [
   {
@@ -11,11 +10,7 @@ const router = createBrowserRouter( [
     element: <App />
   },
   {
-    path:"/pa",
-    element: <ProductAnalysis/>
-  },
-  {
-    path:"/apd",
+    path:"/productRecords",
     element:<ProductRecords/>
   }
 ])

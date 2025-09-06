@@ -6,6 +6,7 @@ export const ProductRecords = () => {
             <Header/>
             <main className="container">
                 <h1>Product Records</h1>
+                
             </main>
         </>
     )
