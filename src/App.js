@@ -81,9 +81,9 @@ const TotalAndAverage = ( { product } ) => {
     totalElectronicsCount: acc.totalElectronicsCount + ( category === "Electronics" ? 1 : 0 )
   } ),
     { totalPrice: 0, totalRating: 0, totalElectronicsCount: 0 } );
-
   const totalAverage = totalPrice / product.length;
   const totalAvgRating = totalRating / product.length;
+
   return (
     <div>
       <article className=''>
