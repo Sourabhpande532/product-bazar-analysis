@@ -4,6 +4,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ProductRecords } from './app/pages/ProductRecords';
+import { SalesAnalysis } from './app/pages/SalesAnalysis';
+import { SalesData } from './app/pages/SalesData';
 const router = createBrowserRouter( [
   {
     path: "/",
@@ -12,7 +14,16 @@ const router = createBrowserRouter( [
   {
     path:"/productRecords",
     element:<ProductRecords/>
+  },
+  {
+    path:"/salesAnalysis",
+    element: <SalesAnalysis/>
+  },
+  {
+    path:"/salesData",
+    element: <SalesData/>
   }
+
 ])
 
 const root = ReactDOM.createRoot( document.getElementById( 'root' ) );

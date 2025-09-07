@@ -45,6 +45,9 @@ export const ProductRecords = () => {
                     </table>
                 </section>
             </main>
+            <footer className="container">
+             <small>Learning purpose to be here ...</small>
+            </footer>
         </>
     )
 }

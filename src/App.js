@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Header } from "./app/component/Header";
 // import "bootstrap/dist/css/bootstrap.min.css"
 import { productsData } from "./data/productData";
@@ -80,23 +81,23 @@ const TotalAndAverage = ( { product } ) => {
     totalElectronicsCount: acc.totalElectronicsCount + ( category === "Electronics" ? 1 : 0 )
   } ),
     { totalPrice: 0, totalRating: 0, totalElectronicsCount: 0 } );
-  
+
   const totalAverage = totalPrice / product.length;
   const totalAvgRating = totalRating / product.length;
-  return(
-        <div>
+  return (
+    <div>
       <article className=''>
         <header className='text-light'>
           <h2>Product Statistics</h2>
         </header>
         <p>
-          <strong>Total Electronics Product:</strong> { totalElectronicsCount}
+          <strong>Total Electronics Product:</strong> { totalElectronicsCount }
         </p>
         <p>
-          <strong>Average Price:</strong> { totalAverage.toFixed(2) }
+          <strong>Average Price:</strong> { totalAverage.toFixed( 2 ) }
         </p>
-        <p>Total price: {totalPrice}</p>
-        <p>Total Rating: {totalRating}</p>
+        <p>Total price: { totalPrice }</p>
+        <p>Total Rating: { totalRating }</p>
         <footer>
           <strong className='text-light'>
             Average Rating: { totalAvgRating.toFixed( 1 ) }
@@ -147,8 +148,8 @@ const App = () => {
           <h1>Product Analysis</h1>
           <p>Statistical analysis for products</p>
         </hgroup>
-        <br />
-        <br />
+        <button><Link style={{textDecoration:"none", color: "wheat", fontWeight:"bold"}} to="/salesAnalysis">View Sales</Link></button>
+        <br /> <br />
         <ExpensiveProduct product={ productsData } />
         <section className=''>
           <h2 className='py-3'>Total and Averages</h2>
