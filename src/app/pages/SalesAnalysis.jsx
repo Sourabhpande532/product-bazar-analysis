@@ -49,7 +49,7 @@ const CountTopPerformer = () => {
     )
 }
 const CalculateQuaterlySales = () => {
-    const x = updateWithTotalNdAvg.reduce( ( acc, { q1Sales, q2Sales, q3Sales, q4Sales, totalAverage, totalSales } ) => ( {
+    const { q1SalesTotal, q2SalesTotal, q3SalesTotal, q4SalesTotal, totalSalesAverage, totalSale } = updateWithTotalNdAvg.reduce( ( acc, { q1Sales, q2Sales, q3Sales, q4Sales, totalAverage, totalSales } ) => ( {
         q1SalesTotal: acc.q1SalesTotal + q1Sales,
         q2SalesTotal: acc.q2SalesTotal + q2Sales,
         q3SalesTotal: acc.q3SalesTotal + q3Sales,
@@ -58,8 +58,24 @@ const CalculateQuaterlySales = () => {
         totalSale: acc.totalSale + totalSales
     } ), { q1SalesTotal: 0, q2SalesTotal: 0, q3SalesTotal: 0, q4SalesTotal: 0, totalSalesAverage: 0, totalSale: 0 } )
 
-  console.log(x);
-  
+    return (
+        <>
+            <article>
+                <header>
+                    <p>Quarterly Sales Average</p>
+                </header>
+                <p><strong>Q1 Average Sales:</strong> ₹{ ( q1SalesTotal / updateWithTotalNdAvg.length ).toLocaleString( "en-US" ) }</p>
+                <p><strong>Q2 Average Sales:</strong> ₹{ ( q2SalesTotal / updateWithTotalNdAvg.length ).toLocaleString( "en-US" ) }</p>
+                <p><strong>Q3 Average Sales:</strong> ₹{ ( q3SalesTotal / updateWithTotalNdAvg.length ).toLocaleString( "en-US" ) }</p>
+                <p><strong>Q4 Average Sales:</strong> ₹{ ( q4SalesTotal / updateWithTotalNdAvg.length ).toLocaleString( "en-US" ) }</p>
+                <footer>
+                    <p><strong>Total Sales:</strong> ₹{totalSale.toLocaleString()}</p>
+                    <p><strong>Total Average Sales:</strong> ₹{(totalSale/updateWithTotalNdAvg.length).toLocaleString()}</p>
+                </footer>
+            </article>
+        </>
+    )
+
 }
 export const SalesAnalysis = () => {
     return (
