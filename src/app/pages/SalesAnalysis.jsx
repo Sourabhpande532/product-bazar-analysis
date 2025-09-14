@@ -7,7 +7,7 @@ const updateWithTotalNdAvg = salesData.map( ( dataSales ) => {
     const totalAverage = ( totalSales / 4 )
     return { ...dataSales, totalSales, totalAverage }
 } )
-console.log( updateWithTotalNdAvg );
+// console.log( updateWithTotalNdAvg );
 
 
 const BestPeroformer = () => {
@@ -48,6 +48,7 @@ const CountTopPerformer = () => {
         </div>
     )
 }
+
 const CalculateQuaterlySales = () => {
     const { q1SalesTotal, q2SalesTotal, q3SalesTotal, q4SalesTotal, totalSalesAverage, totalSale } = updateWithTotalNdAvg.reduce( ( acc, { q1Sales, q2Sales, q3Sales, q4Sales, totalAverage, totalSales } ) => ( {
         q1SalesTotal: acc.q1SalesTotal + q1Sales,
@@ -57,8 +58,22 @@ const CalculateQuaterlySales = () => {
         totalSalesAverage: acc.totalSalesAverage + totalAverage,
         totalSale: acc.totalSale + totalSales
     } ), { q1SalesTotal: 0, q2SalesTotal: 0, q3SalesTotal: 0, q4SalesTotal: 0, totalSalesAverage: 0, totalSale: 0 } )
+/* const CalculateQuaterlySales = () => {
+  const fields = ["q1Sales", "q2Sales", "q3Sales", "q4Sales", "totalAverage", "totalSales"];
+  const result = updateWithTotalNdAvg.reduce((acc, curr) => {
+    fields.forEach(field => {
+      if (acc[field]) {
+        acc[field] += curr[field];
+      } else {
+        acc[field] = curr[field];
+      }
+    });
+    return acc;
+  }, {});
+  console.log(result);
+};*/
 
-    return (
+return (
         <>
             <article>
                 <header>
@@ -69,14 +84,12 @@ const CalculateQuaterlySales = () => {
                 <p><strong>Q3 Average Sales:</strong> ₹{ ( q3SalesTotal / updateWithTotalNdAvg.length ).toLocaleString( "en-US" ) }</p>
                 <p><strong>Q4 Average Sales:</strong> ₹{ ( q4SalesTotal / updateWithTotalNdAvg.length ).toLocaleString( "en-US" ) }</p>
                 <footer>
-                    <p><strong>Total Sales:</strong> ₹{totalSale.toLocaleString()}</p>
-                    <p><strong>Total Average Sales:</strong> ₹{(totalSale/updateWithTotalNdAvg.length).toLocaleString()}</p>
+                    <p><strong>Total Sales:</strong> ₹{ totalSale.toLocaleString() }</p>
+                    <p><strong>Total Average Sales:</strong> ₹{ ( totalSale / updateWithTotalNdAvg.length ).toLocaleString() }</p>
                 </footer>
             </article>
-        </>
-    )
+             </>)}
 
-}
 export const SalesAnalysis = () => {
     return (
         <>
