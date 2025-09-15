@@ -6,25 +6,35 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ProductRecords } from './app/pages/ProductRecords';
 import { SalesAnalysis } from './app/pages/SalesAnalysis';
 import { SalesData } from './app/pages/SalesData';
+import { MoviesAnalysis } from './app/pages/MoviesAnalysis';
+import { MoviesRecords } from './app/pages/MoviesRecords';
 const router = createBrowserRouter( [
   {
     path: "/",
     element: <App />
   },
   {
-    path:"/productRecords",
-    element:<ProductRecords/>
+    path: "/productRecords",
+    element: <ProductRecords />
   },
   {
-    path:"/salesAnalysis",
-    element: <SalesAnalysis/>
+    path: "/salesAnalysis",
+    element: <SalesAnalysis />
   },
   {
-    path:"/salesData",
-    element: <SalesData/>
+    path: "/salesData",
+    element: <SalesData />
+  },
+  {
+    path: "/moviesAnalysis",
+    element: <MoviesAnalysis />
+  },
+  {
+    path: "/moviesRecords",
+    element: <MoviesRecords />
   }
 
-])
+] )
 
 const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
 root.render(

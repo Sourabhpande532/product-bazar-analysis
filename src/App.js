@@ -148,7 +148,10 @@ const App = () => {
           <h1>Product Analysis</h1>
           <p>Statistical analysis for products</p>
         </hgroup>
-        <button><Link style={{textDecoration:"none", color: "wheat", fontWeight:"bold"}} to="/salesAnalysis">View Sales</Link></button>
+        <button><Link style={ { textDecoration: "none", color: "wheat", fontWeight: "bold" } } to="/salesAnalysis">View Sales</Link></button>
+        <button style={{marginLeft:"30px"}}>
+          <Link to="/moviesAnalysis" style={ { textDecoration: "none", color: "wheat", fontWeight: "bold" } }>View Movies</Link>
+        </button>
         <br /> <br />
         <ExpensiveProduct product={ productsData } />
         <section className=''>
