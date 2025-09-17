@@ -1,0 +1,42 @@
+ export const movieData = [
+        {
+          name: "Kabhi Khushi Kabhi Gham",
+          genre: "Drama",
+          boxOffice: 500,
+          satelliteRights: 120,
+          ottRights: 70,
+          musicRights: 20,
+        },
+        {
+          name: "Dilwale Dulhania Le Jayenge",
+          genre: "Romance",
+          boxOffice: 550,
+          satelliteRights: 130,
+          ottRights: 80,
+          musicRights: 25,
+        },
+        {
+          name: "3 Idiots",
+          genre: "Comedy",
+          boxOffice: 600,
+          satelliteRights: 140,
+          ottRights: 90,
+          musicRights: 30,
+        },
+        {
+          name: "Bajrangi Bhaijaan",
+          genre: "Action",
+          boxOffice: 700,
+          satelliteRights: 160,
+          ottRights: 100,
+          musicRights: 40,
+        },
+        {
+          name: "Padmaavat",
+          genre: "Historical",
+          boxOffice: 800,
+          satelliteRights: 180,
+          ottRights: 110,
+          musicRights: 45,
+        },
+      ];
