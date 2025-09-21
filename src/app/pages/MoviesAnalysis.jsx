@@ -11,7 +11,41 @@ const updateMovie = movieData.map( ( eachMovie ) => {
         totalAverage
     }
 } )
-// console.log(updateMovie);
+console.log( updateMovie );
+
+const MoviesAverageDetails = () => {
+    const { totalCost, totalBoxOffice, totalSatellightRights, totalOttRights, totalMusicRights } = updateMovie.reduce( ( acc, { totalRevenue, boxOffice, satelliteRights, ottRights, musicRights } ) => (
+        {
+            totalCost: acc.totalCost + totalRevenue,
+            totalBoxOffice: acc.totalBoxOffice + boxOffice,
+            totalSatellightRights: acc.totalSatellightRights + satelliteRights,
+            totalOttRights: acc.totalOttRights + ottRights,
+            totalMusicRights: acc.totalMusicRights + musicRights
+        }
+    ), { totalCost: 0, totalBoxOffice: 0, totalSatellightRights: 0, totalOttRights: 0, totalMusicRights: 0 } )
+
+    const boxOfficeAverage = totalBoxOffice / movieData.length;
+    const satelliteRightsAverage = totalSatellightRights / movieData.length;
+    const ottRightsAverage = totalOttRights / movieData.length;
+    const musicRightsAverage = totalMusicRights / movieData.length;
+    const averageCostPerMovie = boxOfficeAverage + satelliteRightsAverage + ottRightsAverage + musicRightsAverage;
+
+    return (
+        <div>
+            <article>
+                <header><h3>Movies Average</h3></header>
+                <p><strong>Total Cost of All Movies: $</strong>{ totalCost } Cr</p>
+                <p><strong>Total Average cost of all movies: $</strong>{ averageCostPerMovie } Cr</p>
+                <p><strong>Total Box Office Average: $</strong>{ boxOfficeAverage } Cr</p>
+                <p><strong>Total Satellite Rights: $</strong>{ satelliteRightsAverage } Cr</p>
+                <p><strong>Total OTT Averages: $</strong>{ ottRightsAverage } Cr</p>
+                <footer>
+                    <h3>Total Music Rights: ${ musicRightsAverage }</h3>
+                </footer>
+            </article>
+        </div>
+    )
+}
 
 export const MoviesAnalysis = () => {
     const { name, genre, boxOffice, satelliteRights, ottRights, musicRights, totalRevenue } = updateMovie.reduce( ( acc, curr ) => curr.totalRevenue > acc.totalRevenue ? curr : acc );
@@ -43,8 +77,8 @@ export const MoviesAnalysis = () => {
                 </section>
                 <br></br>
                 <section>
-                <h2>Movies Average</h2>
-                
+                    <h2>Movies Average</h2>
+                    <MoviesAverageDetails />
                 </section>
             </main>
         </>
