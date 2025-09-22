@@ -11,7 +11,7 @@ const updateMovie = movieData.map( ( eachMovie ) => {
         totalAverage
     }
 } )
-console.log( updateMovie );
+// console.log( updateMovie );
 
 const MoviesAverageDetails = () => {
     const { totalCost, totalBoxOffice, totalSatellightRights, totalOttRights, totalMusicRights } = updateMovie.reduce( ( acc, { totalRevenue, boxOffice, satelliteRights, ottRights, musicRights } ) => (
@@ -46,6 +46,34 @@ const MoviesAverageDetails = () => {
         </div>
     )
 }
+
+/* Short code
+const MoviesAverageDetails = () => {
+  const fields = ["boxOffice", "satelliteRights", "ottRights", "musicRights"];
+  const totals = updateMovie.reduce((a, m) => {
+    fields.forEach(f => a[f] += m[f]);
+    a.totalCost += m.totalRevenue;
+    return a;
+  }, { totalCost: 0, boxOffice: 0, satelliteRights: 0, ottRights: 0, musicRights: 0 });
+
+  const len = movieData.length;
+
+  return (
+    <article>
+      <header><h3>Movies Average</h3></header>
+      <p><strong>Total Cost of All Movies: $</strong>{totals.totalCost} Cr</p>
+      <p><strong>Total Average cost of all movies: $</strong>
+        {fields.reduce((s,f)=>s+totals[f]/len,0)} Cr
+      </p>
+      {fields.map(f => (
+        <p key={f}><strong>{f} Avg: $</strong>{totals[f]/len} Cr</p>
+      ))}
+      <footer><h3>Total Music Rights: ${totals.musicRights/len}</h3></footer>
+    </article>
+  );
+};
+
+*/
 
 export const MoviesAnalysis = () => {
     const { name, genre, boxOffice, satelliteRights, ottRights, musicRights, totalRevenue } = updateMovie.reduce( ( acc, curr ) => curr.totalRevenue > acc.totalRevenue ? curr : acc );
