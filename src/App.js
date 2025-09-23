@@ -149,10 +149,14 @@ const App = () => {
           <p>Statistical analysis for products</p>
         </hgroup>
         <button><Link style={ { textDecoration: "none", color: "wheat", fontWeight: "bold" } } to="/salesAnalysis">View Sales</Link></button>
-        <button style={{marginLeft:"30px"}}>
+        <button style={ { marginLeft: "30px" } }>
           <Link to="/moviesAnalysis" style={ { textDecoration: "none", color: "wheat", fontWeight: "bold" } }>View Movies</Link>
         </button>
+        <button style={ { marginLeft: "30px" } }>
+          <Link to="/employeeAnalysis" style={ { textDecoration: "none", color: "wheat", fontWeight: "bold" } }>View Employees</Link>
+        </button>
         <br /> <br />
+
         <ExpensiveProduct product={ productsData } />
         <section className=''>
           <h2 className='py-3'>Total and Averages</h2>

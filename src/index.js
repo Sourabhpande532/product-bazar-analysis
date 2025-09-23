@@ -8,6 +8,8 @@ import { SalesAnalysis } from './app/pages/SalesAnalysis';
 import { SalesData } from './app/pages/SalesData';
 import { MoviesAnalysis } from './app/pages/MoviesAnalysis';
 import { MoviesRecords } from './app/pages/MoviesRecords';
+import { PayrollAnalysis } from './app/pages/employeePayrollAnalysis';
+import { EmployeeRecords } from './app/pages/employeeRecords';
 const router = createBrowserRouter( [
   {
     path: "/",
@@ -32,8 +34,15 @@ const router = createBrowserRouter( [
   {
     path: "/moviesRecords",
     element: <MoviesRecords />
+  },
+  {
+    path:"/employeeAnalysis",
+    element: <PayrollAnalysis/>
+  },
+    {
+    path:"/employeeRecords",
+    element: <EmployeeRecords/>
   }
-
 ] )
 
 const root = ReactDOM.createRoot( document.getElementById( 'root' ) );
